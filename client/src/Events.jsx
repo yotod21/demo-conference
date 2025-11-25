@@ -45,9 +45,9 @@ function Events() {
           ))}
         </tbody>
       </table>
-      {  /* <Link to={"/events/create"} className="btn btn-primary">
+       <Link to={"/events/create"} className="btn btn-primary">
               + Add Event
-            </Link>*/}
+            </Link>
     </div>
   );
 }
