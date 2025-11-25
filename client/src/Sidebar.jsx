@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { EventContext } from "./MyContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import logo from "./img/logo-5.png";
 import avatar from "./img/Avatar.jpg";
 import "./style.css";
@@ -55,32 +55,50 @@ function Sidebar() {
         </div>
         <hr className="text-dark" />
         <div className="list-group list-group-flush">
-          <a href="/dashboard" className="list-group-item py-2">
+          <Link 
+            to="/dashboard" 
+            className={`list-group-item py-2 ${location.pathname === '/dashboard' ? 'active' : ''}`}
+          >
             <i className="bi bi-speedometer2 fs-5 me-3"></i>
             <span>Dashboard</span>
-          </a>
+          </Link>
 
-
-          <a href="/events" className="list-group-item py-2">
+          <Link 
+            to="/events" 
+            className={`list-group-item py-2 ${location.pathname.startsWith('/events') ? 'active' : ''}`}
+          >
             <i className="bi bi-table fs-5 me-3"></i>
             <span>Events</span>
-          </a>
+          </Link>
 
-          <a href="/speakers" className="list-group-item py-2">
+          <Link 
+            to="/speakers" 
+            className={`list-group-item py-2 ${location.pathname === '/speakers' ? 'active' : ''}`}
+          >
             <i className="bi bi-megaphone fs-5 me-3"></i>
             <span>Speakers</span>
-          </a>
-          <a href="/sponsors" className="list-group-item py-2">
+          </Link>
+          <Link 
+            to="/sponsors" 
+            className={`list-group-item py-2 ${location.pathname === '/sponsors' ? 'active' : ''}`}
+          >
             <i className="bi bi-globe fs-5 me-3"></i>
             <span>Sponsors</span>
-          </a>
+          </Link>
 
-          <a href="/users" className="list-group-item py-2">
+          <Link 
+            to="/users" 
+            className={`list-group-item py-2 ${location.pathname === '/users' ? 'active' : ''}`}
+          >
             <i className="bi bi-people fs-5 me-3"></i>
             <span>Users</span>
-          </a>
+          </Link>
 
-          <a className="list-group-item py-2" onClick={handleLogout}>
+          <a 
+            className="list-group-item py-2" 
+            onClick={handleLogout}
+            style={{ cursor: 'pointer' }}
+          >
             <i className="bi bi-power fs-5 me-3"></i>
             <span>Logout</span>
           </a>
