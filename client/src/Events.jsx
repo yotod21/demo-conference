@@ -45,7 +45,7 @@ function Events() {
           ))}
         </tbody>
       </table>
-       <Link to={"/events/create"} className="bi bi-plus-circle">
+       <Link to={"/events/create"} className="btn btn-primary">
               + Add Event
             </Link>
     </div>
