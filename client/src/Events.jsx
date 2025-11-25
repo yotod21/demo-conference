@@ -45,9 +45,9 @@ function Events() {
           ))}
         </tbody>
       </table>
-      <a href="/events/create" className="btn btn-success fw-bold mb-3">
-        <i className="bi bi-plus-circle"></i> Create New Event
-      </a>
+      <Link to={"/events/create"} className="btn btn-primary">
+              + Add Event
+            </Link>
     </div>
   );
 }
