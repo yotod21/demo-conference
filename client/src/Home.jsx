@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import Events from "./Events";
 import Dashboard from "./Dashboard";
@@ -19,16 +20,29 @@ import AddSchedule from "./AddSchedule";
 import UpdateEvent from "./UpdateEvent";
 import Room from "./Room";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Sharelink from "./Sharelink";
 
 function Home() {
   const [toggle, setTottle] = useState(true);
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/";
+
   const Toggle = () => {
     setTottle(!toggle);
   };
 
+  // If on login page, render only the login component without sidebar and nav
+  if (isLoginPage) {
+    return (
+      <Routes>
+        <Route path="/" element={<Login />} />
+      </Routes>
+    );
+  }
+
+  // For all other pages, render with sidebar and nav
   return (
     <div className="container-fluid bg-white min-vh-100 overflow-hidden">
       <div className="row">
@@ -42,7 +56,6 @@ function Home() {
           <div className="dash-background px-3">
             <Nav Toggle={Toggle} />
             <Routes>
-              <Route path="/" element={<Login />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/events" element={<Events />} />
               <Route path="/events/:id" element={<EventDetail />} />
