@@ -27,8 +27,9 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "build": "npx vite build",
+    "serve": "vite preview",
+    "postinstall": "if [ -d node_modules/.bin ]; then chmod +x node_modules/.bin/* 2>/dev/null; fi"
   },
   "eslintConfig": {
     "extends": [
